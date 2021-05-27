@@ -79,22 +79,14 @@ class _UDPReceiveState extends State<UDPReceive> {
       elevation: 0,
       backgroundColor: Colors.white,
       iconTheme: IconThemeData(color: Colors.black),
-      leading: Padding(
-        padding: const EdgeInsets.only(left: 20.0),
-        child: GestureDetector(
-          onTap: () {
-            //Navigator.pop(context, '/start-measure');
-          },
-          child: Icon(Icons.arrow_back_ios),
-        ),
-      ),
       actions: <Widget>[
         Padding(
           padding: const EdgeInsets.only(right: 30.0),
           child: GestureDetector(
-            onTap: () {},
-            child: Icon(Icons.more_vert),
-          ),
+              onTap: () {
+                Navigator.pushNamed(context, '/sender-page');
+              },
+              child: Icon(Icons.arrow_forward_ios)),
         ),
       ],
     );
