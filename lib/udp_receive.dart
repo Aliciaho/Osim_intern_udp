@@ -56,6 +56,10 @@ class _UDPReceiveState extends State<UDPReceive> {
               buildTextField(),
               SizedBox(height: 20.0),
               buildOutlinedButton(),
+              SizedBox(height: 15.0),
+              Text("Messages:",
+                  style:
+                      TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold)),
               buildListView(),
             ],
           ),
