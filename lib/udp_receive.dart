@@ -12,6 +12,7 @@ class _UDPReceiveState extends State<UDPReceive> {
   Receiver receiver = new Receiver(null, null);
   List<String> _messages = [];
   bool isButtonPressed = false;
+  String text = "";
 
   @override
   void dispose() {
@@ -117,11 +118,14 @@ class _UDPReceiveState extends State<UDPReceive> {
   OutlinedButton buildOutlinedButton() {
     return OutlinedButton(
       onPressed: () {
-        if (_textEditingController.text.isEmpty) {
+        if (_textEditingController.text.isEmpty ||
+            _textEditingController.text == text) {
           return;
+        } else {
+          text = _textEditingController.text;
+          clearMessageList();
+          setPortNumber();
         }
-        clearMessageList();
-        setPortNumber();
       },
       child: Text('Connect to Port',
           style: TextStyle(
@@ -151,7 +155,7 @@ class _UDPReceiveState extends State<UDPReceive> {
         filled: true,
         fillColor: Colors.white60,
         contentPadding: EdgeInsets.all(15.0),
-        hintText: "Plese key in port number",
+        hintText: "Please key in port number",
         labelText: "Port Number",
         labelStyle: TextStyle(fontSize: 16),
       ),
